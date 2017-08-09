@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Main.css';
 import Map from './map/Map';
+import SearchBox from './search/SearchBox'
 
 class Main extends Component {
   render() {
@@ -10,9 +11,7 @@ class Main extends Component {
             <h1>Chaim.co.th</h1>
           </div>
           <div className="Main-container">
-            <p className="Main-intro">
-              Hello Chaim
-            </p>
+            <SearchBox />
             <Map />
           </div>
       </div>
