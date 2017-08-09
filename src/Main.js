@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Main.css';
-import Map from './map/Map';
-import SearchBox from './search/SearchBox'
+import MapContainer from './map/MapContainer';
+import SearchBoxContainer from './search/SearchBoxContainer'
 
 class Main extends Component {
   render() {
@@ -11,8 +11,8 @@ class Main extends Component {
             <h1>Chaim.co.th</h1>
           </div>
           <div className="Main-container">
-            <SearchBox />
-            <Map />
+            <SearchBoxContainer />
+            <MapContainer />
           </div>
       </div>
     );
