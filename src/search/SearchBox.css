@@ -1,0 +1,38 @@
+.SearchBox {
+  margin: 15px 0px;
+}
+
+.SearchBox-Container {
+  position: relative;
+}
+
+.SearchBox-Suggestion {
+  position: absolute;
+  top: 100%;
+  z-index: 10;
+}
+
+.SearchBox-Input {
+  width: 100%;
+}
+
+.SearchBox-Suggestion {
+  width: 100%;
+  background-color: white;
+  text-align: left;
+  border: 1px solid black;
+  display: none;
+}
+
+.SearchBox-Suggestion.active {
+  display: block;
+}
+
+.SearchBox-Suggestion li {
+  padding: 10px;
+  border-top: 2px solid black;
+}
+
+.SearchBox-Suggestion li:first-child {
+  border-top: none;
+}
