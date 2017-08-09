@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Main.css';
+import Map from './map/map';
 
 class Main extends Component {
   render() {
@@ -12,6 +13,7 @@ class Main extends Component {
             <p className="Main-intro">
               Hello Chaim
             </p>
+            <Map />
           </div>
       </div>
     );
