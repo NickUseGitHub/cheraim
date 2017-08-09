@@ -6,7 +6,7 @@ class Main extends Component {
     return (
       <div className="Main">
           <div className="Main-header">
-            <h2>Welcome to Chaim</h2>
+            <h1>Chaim.co.th</h1>
           </div>
           <div className="Main-container">
             <p className="Main-intro">
