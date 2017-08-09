@@ -2,6 +2,8 @@ import { compose, withState, withHandlers } from 'recompose';
 import withClickOutside from 'react-onclickoutside';
 import SearchBox from './SearchBox';
 
+const submitForm = keyword => alert(keyword);
+
 export default compose(
   withState('keyword', 'updateKeyword', ''),
   withState('isActive', 'updateIsActive', false),
@@ -12,7 +14,7 @@ export default compose(
     },
     onSubmit: ({ keyword }) => event => {
       event.preventDefault()
-      console.log('keyword', keyword)
+      submitForm(keyword)
     },
     onClick: ({ updateIsActive }) => event => {
       updateIsActive(true);
