@@ -8,7 +8,7 @@ class Main extends Component {
     return (
       <div className="Main">
           <div className="Main-header">
-            <h1>Chaim.co.th</h1>
+            <img className="Main-logo" src="http://cheraim.com/wp-content/uploads/2015/10/GOGO.png" />
           </div>
           <div className="Main-container">
             <SearchBoxContainer />

@@ -4,6 +4,7 @@
 
 .SearchBox-Container {
   position: relative;
+  margin: 20px;
 }
 
 .SearchBox-Suggestion {
@@ -35,4 +36,11 @@
 
 .SearchBox-Suggestion li:first-child {
   border-top: none;
+}
+
+@media screen
+and (min-width : 1171px) {
+  .SearchBox-Container {
+    margin: 0px;
+  }
 }

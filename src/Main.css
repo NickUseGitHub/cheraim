@@ -3,7 +3,7 @@
 }
 
 .Main-header {
-  background-color: #014826;
+  background-color: #09bb67;
   height: 60px;
   padding: 10px;
   color: white;
@@ -13,8 +13,17 @@
   font-size: large;
 }
 
+.Main-logo {
+  height: 100%;
+  width: auto;
+}
+
 @media screen
 and (min-width : 1171px) {
+  .Main-header {
+    height: 110px;
+  }
+
   .Main-container {
     width: 1170px;
     margin: 0 auto;
