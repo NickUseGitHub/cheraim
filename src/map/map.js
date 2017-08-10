@@ -10,8 +10,8 @@ import { withGoogleMap, GoogleMap, Marker } from "react-google-maps";
 const GettingStartedGoogleMap = withGoogleMap(props => (
   <GoogleMap
     ref={props.onMapLoad}
-    defaultZoom={3}
-    defaultCenter={{ lat: -25.363882, lng: 131.044922 }}
+    defaultZoom={17}
+    defaultCenter={{ lat: 13.7281262, lng: 100.5328248 }}
     onClick={props.onMapClick}
   >
     {props.markers.map(marker => (
@@ -28,8 +28,8 @@ export default class GettingStartedExample extends Component {
   state = {
     markers: [{
       position: {
-        lat: 25.0112183,
-        lng: 121.52067570000001,
+        lat: 13.7281262,
+        lng: 100.5328248
       },
       key: `Taiwan`,
       defaultAnimation: 2,
