@@ -86,7 +86,7 @@ export default class GettingStartedExample extends Component {
 
   render() {
     return (
-      <div style={{height: `300px`}}>
+      <div style={{height: `70vh`}}>
         <GettingStartedGoogleMap
           containerElement={
             <div style={{ height: `100%` }} />
