@@ -7,6 +7,7 @@ export default (props) => {
     mapList,
     isActive,
     onClick,
+    onDropDownClick,
     onChange,
     onSubmit
   } = props;
@@ -18,7 +19,7 @@ export default (props) => {
             <input value={keyword} onClick={onClick} onChange={onChange} className="SearchBox-Input"/>
           </form>
           <ul className={`SearchBox-Suggestion ${isActive ? 'active' : ''}`}>
-            {mapList.map(v => <li key={v}>{v}</li>)}
+            {mapList.map(v => <li key={v} onClick={onDropDownClick(v)}>{v}</li>)}
           </ul>
         </div>
       </div>
