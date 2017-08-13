@@ -30,17 +30,21 @@ export default class GettingStartedExample extends Component {
    * Go and try click now.
    */
   handleMapClick(event) {
-    const nextMarkers = [
-      ...this.state.markers,
-      {
-        position: event.latLng,
-        defaultAnimation: 2,
-        key: Date.now(), // Add a key property for: http://fb.me/react-warning-keys
-      },
-    ];
-    this.setState({
-      markers: nextMarkers,
-    });
+    console.log('map click!');
+    /**
+     * create marker
+     */
+    // const nextMarkers = [
+    //   ...this.state.markers,
+    //   {
+    //     position: event.latLng,
+    //     defaultAnimation: 2,
+    //     key: Date.now(), // Add a key property for: http://fb.me/react-warning-keys
+    //   },
+    // ];
+    // this.setState({
+    //   markers: nextMarkers,
+    // });
 
     // if (nextMarkers.length === 3) {
     //   this.props.toast(
