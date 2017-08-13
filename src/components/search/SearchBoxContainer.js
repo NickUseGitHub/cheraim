@@ -1,37 +1,20 @@
 import { compose, withState, withHandlers } from 'recompose';
-import withClickOutside from 'react-onclickoutside';
+import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 import SearchBox from './SearchBox';
 
-const submitForm = keyword => alert(keyword);
-const mapList = [
-  'สีลม',
-  'Silom Complex',
-  'สยาม',
-  'Digital Gateway'
-]
-
 export default compose(
-  withState('keyword', 'updateKeyword', ''),
-  withState('isActive', 'updateIsActive', false),
-  withState('mapList', 'updateMapList', mapList),
+  withState('address', 'updateAddress', 'สีลม'),
   withHandlers({
-    onChange: ({ updateKeyword, updateIsActive }) => event => {
-      updateKeyword(event.target.value);
+    onAddressChange: ({ updateAddress }) => address => {
+      updateAddress(address);
     },
-    onSubmit: ({ keyword }) => event => {
+    handleFormSubmit: ({ address, updateCenter }) => event => {
       event.preventDefault()
-      submitForm(keyword)
-    },
-    onClick: ({ updateIsActive }) => event => {
-      updateIsActive(true);
-    },
-    onDropDownClick: ({ updateKeyword, updateIsActive }) => value => () => {
-      updateKeyword(value);
-      updateIsActive(false);
-    },
-    handleClickOutside: ({ updateIsActive }) => event => {
-      updateIsActive(false);
+ 
+      geocodeByAddress(address)
+        .then(results => getLatLng(results[0]))
+        .then(latLng => updateCenter(latLng))
+        .catch(error => console.error('Error', error))
     }
-  }),
-  withClickOutside
+  })
 )(SearchBox);
