@@ -24,7 +24,7 @@ export default (props) => {
       <div className="SearchBox-Container">
         <form onSubmit={handleFormSubmit}>
           <PlacesAutocomplete inputProps={inputAutoCompletes} classNames={cssClasses} />
-          <button className="map-button" type="submit">Submit</button>
+          <button className="map-button" type="submit">ค้นหา</button>
         </form>
       </div>
     </div>
