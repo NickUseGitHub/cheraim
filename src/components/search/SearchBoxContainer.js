@@ -2,6 +2,10 @@ import { compose, withState, withHandlers } from 'recompose';
 import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 import SearchBox from './SearchBox';
 
+/**
+ * google-place-autosuggestion ref: https://github.com/kenny-hibino/react-places-autocomplete
+ */
+
 export default compose(
   withState('address', 'updateAddress', 'สีลม'),
   withHandlers({

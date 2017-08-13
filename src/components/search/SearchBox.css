@@ -39,9 +39,32 @@
   border-top: none;
 }
 
+.form-map-autosuggestion {
+  display: inline-block;
+  width: 80%;
+}
+.map-input {
+  width: 100%;
+  height: 25px;
+}
+.map-button {
+  display: inline-block;
+  width: 20%;
+  border: none;
+  height: 25px;
+  vertical-align: top;
+  background-color: #09bb67;
+  color: white;
+  font-size: 10pt;
+}
+
 @media screen
 and (min-width : 1171px) {
   .SearchBox-Container {
     margin: 0px;
+  }
+
+  .map-button {
+    font-size: 15pt;
   }
 }

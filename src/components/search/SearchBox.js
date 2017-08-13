@@ -14,12 +14,17 @@ export default (props) => {
     onChange: onAddressChange,
   }
 
+  const cssClasses = {
+    root: 'form-map-autosuggestion',
+    input: 'map-input'
+  }
+
   return (
     <div className="SearchBox">
       <div className="SearchBox-Container">
         <form onSubmit={handleFormSubmit}>
-          <PlacesAutocomplete inputProps={inputAutoCompletes} />
-          <button type="submit">Submit</button>
+          <PlacesAutocomplete inputProps={inputAutoCompletes} classNames={cssClasses} />
+          <button className="map-button" type="submit">Submit</button>
         </form>
       </div>
     </div>
