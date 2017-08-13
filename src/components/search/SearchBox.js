@@ -3,7 +3,6 @@ import PlacesAutocomplete from 'react-places-autocomplete';
 import './SearchBox.css';
 
 export default (props) => {
-  console.log(props);
   const {
     address,
     onAddressChange,
