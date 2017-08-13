@@ -16,21 +16,19 @@ export default compose(
         console.log(map.getZoom());
       }
     },
-    handleMapClick: () => event => {
+    handleMapClick: ({ markers, updateMarkers }) => event => {
       /**
        * create marker
        */
       // const nextMarkers = [
-      //   ...this.state.markers,
+      //   ...markers,
       //   {
       //     position: event.latLng,
       //     defaultAnimation: 2,
       //     key: Date.now(), // Add a key property for: http://fb.me/react-warning-keys
       //   },
       // ];
-      // this.setState({
-      //   markers: nextMarkers,
-      // });
+      // updateMarkers(nextMarkers);
 
       // if (nextMarkers.length === 3) {
       //   this.props.toast(
