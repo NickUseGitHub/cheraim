@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import MapGoogleContainer from './MapGoogleContainer';
 
-export default class GettingStartedExample extends Component {
+export default class Map extends Component {
 
   state = {
     markers: [{

@@ -9,11 +9,6 @@ export default function MappGoogle (props) {
     onMarkerRightClick
   } = props
 
-  onMapLoad
-  onMapClick
-  markers
-  onMarkerRightClick
-
   return (
     <GoogleMap
       ref={onMapLoad}
