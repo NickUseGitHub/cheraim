@@ -5,6 +5,7 @@
 .SearchBox-Container {
   position: relative;
   margin: 20px;
+  z-index: 100;
 }
 
 .SearchBox-Suggestion {

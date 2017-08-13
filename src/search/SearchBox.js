@@ -5,7 +5,7 @@ import './SearchBox.css';
 export default class SearchBox extends Component {
   constructor(props) {
     super(props)
-    this.state = { address: 'San Francisco, CA' }
+    this.state = { address: 'สีลม' }
     this.onChange = (address) => this.setState({ address })
   }
  
