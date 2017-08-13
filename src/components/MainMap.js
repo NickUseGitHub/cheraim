@@ -6,7 +6,7 @@ export default (props) => {
   return (
     <div className="Main-container">
       <SearchBoxContainer />
-      <MapContainer />
+      <MapContainer {...props} />
     </div>
   );
 }

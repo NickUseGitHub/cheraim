@@ -1,16 +1,7 @@
-import { compose, withHandlers, withState } from 'recompose';
+import { compose, withHandlers } from 'recompose';
 import Map from './Map';
 
 export default compose(
-  withState('center', 'updateCenter', { lat: 13.7281262, lng: 100.5328248 }),
-  withState('markers', 'updateMarkers', () => [{
-    position: {
-      lat: 13.7281262,
-      lng: 100.5328248
-    },
-    key: `Taiwan`,
-    defaultAnimation: 2,
-  }]),
   withHandlers({
     handleMapLoad: () => map => {
       if (map) {
