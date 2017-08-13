@@ -1,27 +1,38 @@
-import React from 'react';
+import React, { Component } from 'react';
+import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 import './SearchBox.css';
 
-export default (props) => {
-  const {
-    keyword,
-    mapList,
-    isActive,
-    onClick,
-    onDropDownClick,
-    onChange,
-    onSubmit
-  } = props;
+export default class SearchBox extends Component {
+  constructor(props) {
+    super(props)
+    this.state = { address: 'San Francisco, CA' }
+    this.onChange = (address) => this.setState({ address })
+  }
+ 
+  handleFormSubmit = (event) => {
+    event.preventDefault()
+ 
+    geocodeByAddress(this.state.address)
+      .then(results => getLatLng(results[0]))
+      .then(latLng => console.log('Success', latLng))
+      .catch(error => console.error('Error', error))
+  }
 
-  return (
-      <div className="SearchBox">
-        <div className="SearchBox-Container">
-          <form onSubmit={onSubmit}>
-            <input value={keyword} onClick={onClick} onChange={onChange} className="SearchBox-Input"/>
-          </form>
-          <ul className={`SearchBox-Suggestion ${isActive ? 'active' : ''}`}>
-            {mapList.map(v => <li key={v} onClick={onDropDownClick(v)}>{v}</li>)}
-          </ul>
+  render () {
+    const inputProps = {
+      value: this.state.address,
+      onChange: this.onChange,
+    }
+
+    return (
+        <div className="SearchBox">
+          <div className="SearchBox-Container">
+            <form onSubmit={this.handleFormSubmit}>
+              <PlacesAutocomplete inputProps={inputProps} />
+              <button type="submit">Submit</button>
+            </form>
+          </div>
         </div>
-      </div>
-    );
+      );
+  }
 }
