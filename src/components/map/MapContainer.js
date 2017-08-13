@@ -1,11 +1,17 @@
 import { compose, withHandlers } from 'recompose';
+import getLocation from '../../utils/getLocation';
 import Map from './Map';
 
 export default compose(
   withHandlers({
-    handleMapLoad: () => map => {
+    handleMapLoad: ({ updateCenter }) => map => {
       if (map) {
-        console.log(map.getZoom());
+        const getLatlong = pos => ({ lat: pos.coords.latitude, lng: pos.coords.longitude });
+        const setMapToCurrentLocation = pos => updateCenter(pos);
+
+        getLocation()
+          .then(getLatlong)
+          .then(setMapToCurrentLocation);
       }
     },
     handleMapClick: ({ markers, updateMarkers }) => event => {

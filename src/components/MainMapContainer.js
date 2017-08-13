@@ -1,5 +1,5 @@
 import { compose, withState } from 'recompose';
-import MainMap from './MainMap'
+import MainMap from './MainMap';
 
 /**
  * referrence for setZoom & setCenter: https://github.com/tomchentw/react-google-maps/issues/188
