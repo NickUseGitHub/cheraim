@@ -12,6 +12,7 @@ export default function (props) {
   return (
       <div style={{height: `70vh`}}>
         <MapGoogleContainer
+          {...props}
           containerElement={
             <div style={{ height: `100%` }} />
           }
