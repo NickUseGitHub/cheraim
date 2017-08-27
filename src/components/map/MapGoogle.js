@@ -31,13 +31,10 @@ export default function MappGoogle (props) {
         />
       ))}
 
-      <InfoWindow
-                  defaultPosition={ infoWindowPosition }
-                  position={infoWindowPosition}
-                  onCloseclick={() => toggleInfoWindow(null)}
-                  >
+      {infoWindowPosition && <InfoWindow position={infoWindowPosition} >
         {<span>Hello Info</span>}
-      </InfoWindow>
+      </InfoWindow>}
+
     </GoogleMap>
   )
 }

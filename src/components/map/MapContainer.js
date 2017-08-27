@@ -14,7 +14,7 @@ export default compose(
           .then(setMapToCurrentLocation);
       }
     },
-    handleMapClick: ({ markers, updateMarkers }) => event => {
+    handleMapClick: ({ markers, updateMarkers, toggleInfoWindow }) => event => {
       /**
        * create marker
        */
@@ -34,10 +34,12 @@ export default compose(
       //     `Also check the code!`
       //   );
       // }
+      
+      toggleInfoWindow(null);
     },
     handleOnMarkerLeftClick: ({ toggleInfoWindow }) => targetMarker => {
       console.log('targetMarker', targetMarker.position);
-      toggleInfoWindow(targetMarker.position);
+      toggleInfoWindow(targetMarker.position || null);
     },
     handleMarkerRightClick: ({ markers, updateMarkers }) => targetMarker => {
       /**=
