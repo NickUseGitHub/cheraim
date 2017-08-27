@@ -22,8 +22,7 @@ export default compose(
   }]),
   withHandlers({
     toggleInfoWindow: ({ updateInfoWindowPosition }) => loc => {
-      console.log('loc', loc)
-      updateInfoWindowPosition(loc)
+      updateInfoWindowPosition(loc);
     }
   })
 )(MainMap);

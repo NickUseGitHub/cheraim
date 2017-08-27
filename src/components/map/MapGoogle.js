@@ -13,8 +13,6 @@ export default function MappGoogle (props) {
     toggleInfoWindow
   } = props;
 
-  console.log('infoWindowPosition', infoWindowPosition)
-
   return (
     <GoogleMap
       center={center}

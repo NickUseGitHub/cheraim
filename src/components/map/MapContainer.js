@@ -38,7 +38,6 @@ export default compose(
       toggleInfoWindow(null);
     },
     handleOnMarkerLeftClick: ({ toggleInfoWindow }) => targetMarker => {
-      console.log('targetMarker', targetMarker.position);
       toggleInfoWindow(targetMarker.position || null);
     },
     handleMarkerRightClick: ({ markers, updateMarkers }) => targetMarker => {
