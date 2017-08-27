@@ -6,6 +6,7 @@ export default function (props) {
     markers,
     handleMapLoad,
     handleMapClick,
+    handleOnMarkerLeftClick,
     handleMarkerRightClick
   } = props
 
@@ -22,6 +23,7 @@ export default function (props) {
           onMapLoad={handleMapLoad}
           onMapClick={handleMapClick}
           markers={markers}
+          onMarkerLeftClick={handleOnMarkerLeftClick}
           onMarkerRightClick={handleMarkerRightClick}
         />
       </div>

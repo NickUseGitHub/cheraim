@@ -35,6 +35,10 @@ export default compose(
       //   );
       // }
     },
+    handleOnMarkerLeftClick: ({ toggleInfoWindow }) => targetMarker => {
+      console.log('targetMarker', targetMarker.position);
+      toggleInfoWindow(targetMarker.position);
+    },
     handleMarkerRightClick: ({ markers, updateMarkers }) => targetMarker => {
       /**=
         * All you modify is data, and the view is driven by data.

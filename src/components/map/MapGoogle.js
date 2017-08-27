@@ -1,5 +1,5 @@
 import React from 'react';
-import { GoogleMap, Marker } from "react-google-maps";
+import { GoogleMap, Marker, InfoWindow } from "react-google-maps";
 
 export default function MappGoogle (props) {
   const {
@@ -7,8 +7,13 @@ export default function MappGoogle (props) {
     onMapLoad,
     onMapClick,
     markers,
-    onMarkerRightClick
-  } = props
+    onMarkerRightClick,
+    onMarkerLeftClick,
+    infoWindowPosition,
+    toggleInfoWindow
+  } = props;
+
+  console.log('infoWindowPosition', infoWindowPosition)
 
   return (
     <GoogleMap
@@ -21,9 +26,18 @@ export default function MappGoogle (props) {
       {markers.map(marker => (
         <Marker
           {...marker}
+          onClick={() => onMarkerLeftClick(marker)}
           onRightClick={() => onMarkerRightClick(marker)}
         />
       ))}
+
+      <InfoWindow
+                  defaultPosition={ infoWindowPosition }
+                  position={infoWindowPosition}
+                  onCloseclick={() => toggleInfoWindow(null)}
+                  >
+        {<span>Hello Info</span>}
+      </InfoWindow>
     </GoogleMap>
   )
 }
