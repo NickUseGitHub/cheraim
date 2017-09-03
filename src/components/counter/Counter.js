@@ -1,8 +1,15 @@
 import React from 'react';
 
-export default (props) => (
-  <div>
-    number: 0
-    <button>Increase Counter</button>
-  </div>
-);
+export default (props) => {
+  const {
+    number,
+    onButtonClick
+  } = props
+
+  return (
+    <div>
+      number: {number}
+      <button onClick={() => onButtonClick('INCREASE')}>Increase Counter</button>
+    </div>
+  )
+};

@@ -7,11 +7,11 @@ const stateType = {
   DECREASE: -1,
 }
 
-function counterReducer (number = initialStateCounter, action) {
+export function counterReducer (number = initialStateCounter, action) {
   const { type } = action;
   return number + get(stateType, type, 0);
 }
 
 export default combineReducers({
-  counterReducer
+  numberCounter: counterReducer
 });

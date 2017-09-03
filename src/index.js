@@ -9,6 +9,7 @@ import 'reset-css/reset.css';
 import './index.css';
 
 import mapApp from './reducers';
+import { operateCounter } from './reducers/actions/counter';
 import MainContainer from './MainContainer';
 import registerServiceWorker from './registerServiceWorker';
 
