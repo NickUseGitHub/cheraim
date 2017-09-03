@@ -9,6 +9,10 @@ class Main extends Component {
           <div className="Main-header">
             <img className="Main-logo" src="http://cheraim.com/wp-content/uploads/2015/10/GOGO.png" />
           </div>
+          <div>
+            number: 0
+            <button>Increase Counter</button>
+          </div>
           <MainMapContainer />
       </div>
     );
