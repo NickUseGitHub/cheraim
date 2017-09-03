@@ -1,7 +1,7 @@
-import { compose, withReducer } from 'recompose';
+import { compose } from 'recompose';
 import { connect } from 'react-redux';
 import Counter from './Counter';
-import { operateCounter } from '../../reducers/actions/counter'
+import { operateCounter } from '../../reducers/counter';
 
 const mapStateToProps = state => ({
   number: state.numberCounter
