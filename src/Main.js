@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Main.css';
 import MainMapContainer from './components/MainMapContainer';
-import Counter from './components/counter/Counter'
+import CounterContainer from './components/counter/CounterContainer'
 
 class Main extends Component {
   render() {
@@ -10,7 +10,7 @@ class Main extends Component {
           <div className="Main-header">
             <img className="Main-logo" src="http://cheraim.com/wp-content/uploads/2015/10/GOGO.png" />
           </div>
-          <Counter />
+          <CounterContainer />
           <MainMapContainer />
       </div>
     );
