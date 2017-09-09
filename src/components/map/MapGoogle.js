@@ -9,8 +9,7 @@ export default function MappGoogle (props) {
     markers,
     onMarkerRightClick,
     onMarkerLeftClick,
-    infoWindowPosition,
-    toggleInfoWindow
+    infoWindowPosition
   } = props;
 
   return (

@@ -1,11 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 import 'reset-css/reset.css';
 import './index.css';
+
+import mapApp from './reducers';
 import MainContainer from './MainContainer';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<MainContainer />, document.getElementById('root'));
+const store = createStore(mapApp);
+
+ReactDOM.render(
+  <Provider store={store}>
+    <MainContainer />
+  </Provider>, 
+  document.getElementById('root'));
 registerServiceWorker();
