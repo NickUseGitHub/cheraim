@@ -10,7 +10,7 @@ import './index.css';
 
 import app from 'firebase/app';
 import 'firebase/database';
-import firebaseConf from './_conf/config';
+import { firebase as firebaseConf } from './_conf/config';
 
 import mapApp from './reducers';
 import MainContainer from './MainContainer';

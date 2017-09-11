@@ -12,6 +12,7 @@ class Main extends Component {
           </div>
           <CounterContainer />
           <MainMapContainer />
+          <div>{this.props.testStr}</div>
       </div>
     );
   }
