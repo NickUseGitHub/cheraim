@@ -26,15 +26,6 @@ export default compose(
   connect(mapStateToProps, mapDispatchToProps),
   withState('center', 'updateCenter', infoWindowPosition),
   withState('infoWindowPosition', 'updateInfoWindowPosition', null),
-  withState('markers', 'updateMarkers', () => [{
-    position: {
-      lat: 13.7281262,
-      lng: 100.5328248
-    },
-    icon,
-    key: `Silom`,
-    defaultAnimation: 2,
-  }]),
   withHandlers({
     toggleInfoWindow: ({ updateInfoWindowPosition }) => loc => {
       updateInfoWindowPosition(loc);
@@ -42,10 +33,10 @@ export default compose(
   }),
   lifecycle({
     componentDidMount () {
-      const { firebase } = this.props
+      const { addMarkers, firebase } = this.props
       const db = firebase.database()
       db.ref('/Markers').once('value', (snapshot) => {
-        console.log(snapshot.val());
+        addMarkers(snapshot.val());
       })
     }
   })
