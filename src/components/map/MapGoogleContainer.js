@@ -20,5 +20,5 @@ function convertDataFromFirebaseListToMarkersArr (markers) {
 
 export default compose (
   withGoogleMap,
-  withProps(() => ({convertDataFromFirebaseListToMarkersArr}))
+  withProps(({markers}) => ({markers: convertDataFromFirebaseListToMarkersArr(markers)}))
 )(MapGoogle)

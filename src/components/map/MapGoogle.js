@@ -9,7 +9,6 @@ export default function MappGoogle (props) {
     markers,
     onMarkerRightClick,
     onMarkerLeftClick,
-    convertDataFromFirebaseListToMarkersArr,
     infoWindowPosition
   } = props;
 
@@ -21,7 +20,7 @@ export default function MappGoogle (props) {
       defaultCenter={center}
       onClick={onMapClick}
     >
-      {convertDataFromFirebaseListToMarkersArr(markers).map(marker => (
+      {markers.map(marker => (
         <Marker
           {...marker}
           onClick={() => onMarkerLeftClick(marker)}
