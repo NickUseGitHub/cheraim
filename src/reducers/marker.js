@@ -10,7 +10,7 @@ export const actionTypes = {
   GET_MARKERS: mapMarkers
 };
 
-export default (markers = {}, action) => {
+export default function (markers = {}, action) {
   const { type } = action;
 
   return actionTypes[type] !== undefined ? actionTypes[type](action) : {}

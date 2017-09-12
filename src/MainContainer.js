@@ -7,7 +7,7 @@ export default compose(
     componentDidMount () {
       const { firebase, setTestStr } = this.props
       const db = firebase.database()
-      const testStrRef = db.ref('/test').once('value', (snapshot) => {
+      db.ref('/test').once('value', (snapshot) => {
         setTestStr(snapshot.val())
       })
     }
