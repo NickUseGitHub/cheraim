@@ -3,7 +3,6 @@ function addMarker ({markers}) {
 }
 function editMarker () {}
 function deleteMarker () {}
-function mapMarkers () {}
 
 export function addMarkersCreator (markers) {
   return { type: actionTypes.ADD_MARKER.key , markers }
