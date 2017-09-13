@@ -1,13 +1,9 @@
 function addMarker ({marker, dbRef, prevMarkers}) {
-  let newMarkerRef = dbRef.push();
+  const newMarkerRef = dbRef.push();
   newMarkerRef.set(marker);
 
-  const newMarkers = {
-    marker,
-    ...prevMarkers
-  };
-
-  return newMarkers;
+  prevMarkers[newMarkerRef.key] = marker;
+  return prevMarkers;
 }
 function editMarker () {}
 function deleteMarker () {}
