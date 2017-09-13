@@ -2,6 +2,8 @@ import { compose, withHandlers } from 'recompose';
 import getLocation from '../../utils/getLocation';
 import Map from './Map';
 
+// map Demo: https://tomchentw.github.io/react-google-maps/
+
 export default compose(
   withHandlers({
     handleMapLoad: ({ updateCenter }) => map => {
