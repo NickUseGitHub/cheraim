@@ -1,6 +1,6 @@
 import { compose, withState, withHandlers, lifecycle } from 'recompose';
 import { connect } from 'react-redux';
-import { addMarkersCreator } from '../reducers/marker';
+import { mapMarkersCreator } from '../reducers/marker';
 import MainMap from './MainMap';
 
 /**
@@ -16,8 +16,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => {
   return {
-    addMarkers: markers => {
-      dispatch(addMarkersCreator(markers))
+    mapMarkers: markers => {
+      dispatch(mapMarkersCreator(markers))
     }
   }
 };
@@ -33,10 +33,10 @@ export default compose(
   }),
   lifecycle({
     componentDidMount () {
-      const { addMarkers, firebase } = this.props
+      const { mapMarkers, firebase } = this.props
       const db = firebase.database()
       db.ref('/Markers').once('value', (snapshot) => {
-        addMarkers(snapshot.val());
+        mapMarkers(snapshot.val());
       })
     }
   })
