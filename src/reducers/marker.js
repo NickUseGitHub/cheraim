@@ -1,18 +1,26 @@
-function addMarker ({marker, db, markers}) {
-  console.log('markers', markers)
-  console.log('marker', marker)
-  console.log('db', db)
+function addMarker ({marker, dbRef, prevMarkers}) {
+  let newMarkerRef = dbRef.push();
+  newMarkerRef.set(marker);
+
+  const newMarkers = {
+    marker,
+    ...prevMarkers
+  };
+
+  return newMarkers;
 }
 function editMarker () {}
 function deleteMarker () {}
-function mapMarkers ({markers}) {return markers;}
+function mapMarkers ({markers}) {
+  return markers;
+}
 
 export function mapMarkersCreator (markers) {
   return { type: actionTypes.MAP_MARKER.key , markers }
 }
 
-export function addMarkersCreator (marker, db) {
-  return { type: actionTypes.ADD_MARKER.key, marker, db }
+export function addMarkersCreator (dbRef, marker) {
+  return { type: actionTypes.ADD_MARKER.key, marker, dbRef }
 }
 
 export const actionTypes = {
@@ -22,8 +30,8 @@ export const actionTypes = {
   DELETE_MARKER: { func: deleteMarker, key: 'DELETE_MARKER' }
 };
 
-export default function (markers = {}, action) {
+export default function (prevMarkers = {}, action) {
   const { type } = action;
 
-  return actionTypes[type] !== undefined ? actionTypes[type]['func']({...action, markers}) : markers
+  return actionTypes[type] !== undefined ? actionTypes[type]['func']({prevMarkers, ...action}) : prevMarkers;
 }

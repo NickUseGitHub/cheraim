@@ -16,19 +16,21 @@ export default compose(
           .then(setMapToCurrentLocation);
       }
     },
-    handleMapClick: ({ markers, updateMarkers, toggleInfoWindow }) => event => {
+    handleMapClick: ({ markers, addMarkers, toggleInfoWindow, firebase }) => event => {
       /**
        * create marker
        */
       // const nextMarkers = [
-      //   ...markers,
-      //   {
-      //     position: event.latLng,
-      //     defaultAnimation: 2,
-      //     key: Date.now(), // Add a key property for: http://fb.me/react-warning-keys
-      //   },
-      // ];
-      // updateMarkers(nextMarkers);
+      const marker = {
+        position: {
+          lat: event.latLng.lat(),
+          lng: event.latLng.lng()
+        },
+        defaultAnimation: 2,
+        key: Date.now(), // Add a key property for: http://fb.me/react-warning-keys
+      }
+      const db = firebase.database();
+      addMarkers(db.ref('/Markers'), marker);
 
       // if (nextMarkers.length === 3) {
       //   this.props.toast(
@@ -41,15 +43,8 @@ export default compose(
     },
     handleOnMarkerLeftClick: ({ toggleInfoWindow }) => targetMarker => {
       toggleInfoWindow(targetMarker.position || null);
-    },
-    handleMarkerRightClick: ({ markers, updateMarkers }) => targetMarker => {
-      /**=
-        * All you modify is data, and the view is driven by data.
-        * This is so called data-driven-development. (And yes, it's now in
-        * web front end and even with google maps API.)
-        */
-        const nextMarkers = markers.filter(marker => marker !== targetMarker);
-        updateMarkers(nextMarkers);
     }
+    // handleMarkerRightClick: ({ markers }) => targetMarker => {
+    // }
   })
 )(Map);
