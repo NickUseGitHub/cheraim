@@ -25,5 +25,5 @@ export const actionTypes = {
 export default function (markers = {}, action) {
   const { type } = action;
 
-  return actionTypes[type] !== undefined ? actionTypes[type]['func']({...action, markers}) : {}
+  return actionTypes[type] !== undefined ? actionTypes[type]['func']({...action, markers}) : markers
 }
