@@ -1,5 +1,5 @@
 import React from 'react';
-import { GoogleMap, Marker, InfoWindow } from "react-google-maps";
+import { GoogleMap, Marker, InfoWindow } from 'react-google-maps';
 
 export default function MappGoogle (props) {
   const {
