@@ -1,10 +1,11 @@
-import { compose, withHandlers } from 'recompose';
+import { compose, withHandlers, withState } from 'recompose';
 import getLocation from '../../utils/getLocation';
 import Map from './Map';
 
 // map Demo: https://tomchentw.github.io/react-google-maps/
 
 export default compose(
+  withState('showModal', 'setShowModal', false),
   withHandlers({
     handleMapLoad: ({ updateCenter }) => map => {
       if (map) {
@@ -16,7 +17,7 @@ export default compose(
           .then(setMapToCurrentLocation);
       }
     },
-    handleMapClick: ({ markers, addMarkers, toggleInfoWindow, firebase }) => event => {
+    handleMapClick: ({ markers, addMarkers, toggleInfoWindow, firebase, setShowModal }) => event => {
       /**
        * create marker
        */
@@ -28,9 +29,10 @@ export default compose(
         },
         defaultAnimation: 2,
         key: Date.now(), // Add a key property for: http://fb.me/react-warning-keys
-      }
-      const db = firebase.database();
-      addMarkers(db.ref('/Markers'), marker);
+      };
+      setShowModal(true);
+      // const db = firebase.database();
+      // addMarkers(db.ref('/Markers'), marker);
 
       // if (nextMarkers.length === 3) {
       //   this.props.toast(
