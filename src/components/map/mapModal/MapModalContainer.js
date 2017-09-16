@@ -7,9 +7,10 @@ export default compose(
     onIconClick: ({setSelectedIcon}) => icon => () => {
       setSelectedIcon(icon)
     },
-    onClickSave: ({ setShowModal, seletedIcon, selectedPosition }) => () => {
-      console.log('seletedIcon', seletedIcon)
-      console.log('selectedPosition', selectedPosition)
+    onClickSave: ({ addMarkers, firebase, setShowModal, seletedIcon, selectedPosition }) => () => {
+      const newMarker = Object.assign({}, selectedPosition, {icon: seletedIcon});
+      const db = firebase.database();
+      addMarkers(db.ref('/Markers'), newMarker);
       setShowModal(false)
     }
   })

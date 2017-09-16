@@ -5,6 +5,8 @@ import MapGoogleContainer from './MapGoogleContainer';
 export default function (props) {
   const {
     markers,
+    addMarkers,
+    firebase,
     handleMapLoad,
     handleMapClick,
     handleOnMarkerLeftClick,
@@ -30,7 +32,9 @@ export default function (props) {
           onMarkerLeftClick={handleOnMarkerLeftClick}
           onMarkerRightClick={handleMarkerRightClick}
         />
-        <MapModalContainer 
+        <MapModalContainer
+          addMarkers={addMarkers}
+          firebase={firebase}
           showModal={showModal}
           setShowModal={setShowModal}
           selectedPosition={selectedPosition} />

@@ -18,7 +18,7 @@ export default compose(
           .then(setMapToCurrentLocation);
       }
     },
-    handleMapClick: ({ markers, addMarkers, toggleInfoWindow, firebase, setShowModal, setSelectedPosition }) => event => {
+    handleMapClick: ({ markers, toggleInfoWindow, setShowModal, setSelectedPosition }) => event => {
       /**
        * create marker
        */
@@ -34,8 +34,6 @@ export default compose(
       };
       setSelectedPosition(marker);
       setShowModal(true);
-      // const db = firebase.database();
-      // addMarkers(db.ref('/Markers'), marker);
 
       // if (nextMarkers.length === 3) {
       //   this.props.toast(
