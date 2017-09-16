@@ -46,8 +46,9 @@ export default compose(
     },
     handleOnMarkerLeftClick: ({ toggleInfoWindow }) => targetMarker => {
       toggleInfoWindow(targetMarker.position || null);
+    },
+    handleMarkerRightClick: ({ markers }) => targetMarker => {
+      console.log('targetMarker', targetMarker)
     }
-    // handleMarkerRightClick: ({ markers }) => targetMarker => {
-    // }
   })
 )(Map);
