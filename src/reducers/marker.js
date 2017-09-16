@@ -8,7 +8,7 @@ function addMarker ({marker, dbRef, prevMarkers}) {
 function editMarker () {}
 function deleteMarker () {}
 function mapMarkers ({markers}) {
-  return markers;
+  return markers || {};
 }
 
 export function mapMarkersCreator (markers) {
