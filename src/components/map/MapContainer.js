@@ -1,4 +1,5 @@
 import { compose, withHandlers, withState } from 'recompose';
+import { isEmpty } from 'lodash';
 import getLocation from '../../utils/getLocation';
 import Map from './Map';
 
@@ -45,7 +46,8 @@ export default compose(
       toggleInfoWindow(null);
     },
     handleOnMarkerLeftClick: ({ toggleInfoWindow }) => targetMarker => {
-      toggleInfoWindow(targetMarker.position || null);
+      if (isEmpty(targetMarker)) return;
+      toggleInfoWindow(targetMarker || null);
     },
     handleMarkerRightClick: ({ markers }) => targetMarker => {
       console.log('targetMarker', targetMarker)
