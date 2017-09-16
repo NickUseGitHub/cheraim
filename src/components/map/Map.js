@@ -1,5 +1,5 @@
 import React from 'react';
-import MapModal from './mapModal/MapModal';
+import MapModalContainer from './mapModal/MapModalContainer';
 import MapGoogleContainer from './MapGoogleContainer';
 
 export default function (props) {
@@ -29,7 +29,7 @@ export default function (props) {
           onMarkerLeftClick={handleOnMarkerLeftClick}
           onMarkerRightClick={handleMarkerRightClick}
         />
-        <MapModal showModal={showModal} setShowModal={setShowModal} />
+        <MapModalContainer showModal={showModal} setShowModal={setShowModal} />
       </div>
     );
 }
