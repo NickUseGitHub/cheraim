@@ -8,7 +8,10 @@ export default function MapModal (props) {
     setShowModal,
     selectedPosition,
     onClickSave,
-    onIconClick 
+    onIconClick,
+    name,
+    description,
+    onValueChange
   } = props;
 
   console.log('selectedIcon', selectedIcon)
@@ -18,8 +21,8 @@ export default function MapModal (props) {
     style={{ overlay: { zIndex: 102 }}}
     contentLabel="Example Modal"
   >
-    <div>Name: <input /></div>
-    <div>Desciption: <input /></div>
+    <div>Name: <input type="text" value={name} onChange={onValueChange('Name')} /></div>
+    <div>Desciption: <input type="text" value={description} onChange={onValueChange('Description')} /></div>
     <div>
       <div>Select Icon</div>
       <button style={{ backgroundColor: (selectedIcon === 0 ? 'green' : 'white')}} onClick={onIconClick(0)}><img src="http://maps.google.com/mapfiles/marker.png" /></button>
