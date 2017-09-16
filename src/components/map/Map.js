@@ -10,7 +10,8 @@ export default function (props) {
     handleOnMarkerLeftClick,
     handleMarkerRightClick,
     showModal,
-    setShowModal
+    setShowModal,
+    selectedPosition
   } = props
 
   return (
@@ -29,7 +30,10 @@ export default function (props) {
           onMarkerLeftClick={handleOnMarkerLeftClick}
           onMarkerRightClick={handleMarkerRightClick}
         />
-        <MapModalContainer showModal={showModal} setShowModal={setShowModal} />
+        <MapModalContainer 
+          showModal={showModal}
+          setShowModal={setShowModal}
+          selectedPosition={selectedPosition} />
       </div>
     );
 }

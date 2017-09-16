@@ -6,6 +6,7 @@ import Map from './Map';
 
 export default compose(
   withState('showModal', 'setShowModal', false),
+  withState('selectedPosition', 'setSelectedPosition', {}),
   withHandlers({
     handleMapLoad: ({ updateCenter }) => map => {
       if (map) {
@@ -17,19 +18,21 @@ export default compose(
           .then(setMapToCurrentLocation);
       }
     },
-    handleMapClick: ({ markers, addMarkers, toggleInfoWindow, firebase, setShowModal }) => event => {
+    handleMapClick: ({ markers, addMarkers, toggleInfoWindow, firebase, setShowModal, setSelectedPosition }) => event => {
       /**
        * create marker
        */
       // const nextMarkers = [
+      const position = {
+        lat: event.latLng.lat(),
+        lng: event.latLng.lng()
+      };
       const marker = {
-        position: {
-          lat: event.latLng.lat(),
-          lng: event.latLng.lng()
-        },
+        position,
         defaultAnimation: 2,
         key: Date.now(), // Add a key property for: http://fb.me/react-warning-keys
       };
+      setSelectedPosition(marker);
       setShowModal(true);
       // const db = firebase.database();
       // addMarkers(db.ref('/Markers'), marker);
