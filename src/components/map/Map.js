@@ -1,5 +1,5 @@
 import React from 'react';
-import Modal from 'react-modal';
+import MapModal from './mapModal/MapModal';
 import MapGoogleContainer from './MapGoogleContainer';
 
 export default function (props) {
@@ -29,13 +29,7 @@ export default function (props) {
           onMarkerLeftClick={handleOnMarkerLeftClick}
           onMarkerRightClick={handleMarkerRightClick}
         />
-        <Modal
-          isOpen={showModal}
-          style={{ overlay: { zIndex: 102 }}}
-          contentLabel="Example Modal"
-        >
-          <button onClick={() => setShowModal(false)}>Close Modal</button>
-        </Modal>
+        <MapModal showModal={showModal} setShowModal={setShowModal} />
       </div>
     );
 }
