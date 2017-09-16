@@ -31,7 +31,7 @@ export default function (props) {
         />
         <Modal
           isOpen={showModal}
-          style={{ content: { zIndex: 102 }}}
+          style={{ overlay: { zIndex: 102 }}}
           contentLabel="Example Modal"
         >
           <button onClick={() => setShowModal(false)}>Close Modal</button>
