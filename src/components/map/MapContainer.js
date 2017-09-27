@@ -19,7 +19,12 @@ export default compose(
           .then(setMapToCurrentLocation);
       }
     },
-    handleMapClick: ({ markers, toggleInfoWindow, setShowModal, setSelectedPosition }) => event => {
+    handleMapClick: ({ markers, infoWindowPosition, toggleInfoWindow, setShowModal, setSelectedPosition }) => event => {
+      if (!isEmpty(infoWindowPosition)) {
+        toggleInfoWindow(null);
+        return;
+      }
+      
       /**
        * create marker
        */
@@ -35,15 +40,6 @@ export default compose(
       };
       setSelectedPosition(marker);
       setShowModal(true);
-
-      // if (nextMarkers.length === 3) {
-      //   this.props.toast(
-      //     `Right click on the marker to remove it`,
-      //     `Also check the code!`
-      //   );
-      // }
-      
-      toggleInfoWindow(null);
     },
     handleOnMarkerLeftClick: ({ toggleInfoWindow }) => targetMarker => {
       if (isEmpty(targetMarker)) return;
