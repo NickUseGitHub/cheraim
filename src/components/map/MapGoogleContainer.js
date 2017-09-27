@@ -10,7 +10,9 @@ function convertDataFromFirebaseListToMarkersArr (markers) {
 
   return Object.keys(markers).map(key => {
     const iconObj = {
-      1: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
+      0: 'http://maps.google.com/mapfiles/marker.png',
+      1: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+      2: 'http://maps.google.com/mapfiles/marker_orange.png'
     }
 
     return {

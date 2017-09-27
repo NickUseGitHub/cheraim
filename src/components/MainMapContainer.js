@@ -8,7 +8,7 @@ import MainMap from './MainMap';
  */
 
 const icon = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
-const infoWindowPosition = { lat: 13.7281262, lng: 100.5328248 };
+const infoWindowPosition = {};
 
 const mapStateToProps = state => ({
   markers: state.markers
@@ -30,8 +30,9 @@ export default compose(
   withState('center', 'updateCenter', infoWindowPosition),
   withState('infoWindowPosition', 'updateInfoWindowPosition', null),
   withHandlers({
-    toggleInfoWindow: ({ updateInfoWindowPosition }) => loc => {
-      updateInfoWindowPosition(loc);
+    toggleInfoWindow: ({ updateInfoWindowPosition }) => marker => {
+      console.log('marker', marker);
+      updateInfoWindowPosition(marker);
     }
   }),
   lifecycle({

@@ -28,8 +28,13 @@ export default function MappGoogle (props) {
         />
       ))}
 
-      {infoWindowPosition && <InfoWindow position={infoWindowPosition} >
-        {<span>Hello Info</span>}
+      {infoWindowPosition && <InfoWindow position={infoWindowPosition.position || {}} >
+        {
+          <div>
+            <h2>{infoWindowPosition.name}</h2>
+            <span>{infoWindowPosition.description}</span>
+          </div>
+        }
       </InfoWindow>}
 
     </GoogleMap>

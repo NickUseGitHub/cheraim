@@ -1,10 +1,13 @@
-import { compose, withHandlers } from 'recompose';
+import { compose, withHandlers, withState } from 'recompose';
+import { isEmpty } from 'lodash';
 import getLocation from '../../utils/getLocation';
 import Map from './Map';
 
 // map Demo: https://tomchentw.github.io/react-google-maps/
 
 export default compose(
+  withState('showModal', 'setShowModal', false),
+  withState('selectedPosition', 'setSelectedPosition', {}),
   withHandlers({
     handleMapLoad: ({ updateCenter }) => map => {
       if (map) {
@@ -16,21 +19,22 @@ export default compose(
           .then(setMapToCurrentLocation);
       }
     },
-    handleMapClick: ({ markers, addMarkers, toggleInfoWindow, firebase }) => event => {
+    handleMapClick: ({ markers, toggleInfoWindow, setShowModal, setSelectedPosition }) => event => {
       /**
        * create marker
        */
       // const nextMarkers = [
+      const position = {
+        lat: event.latLng.lat(),
+        lng: event.latLng.lng()
+      };
       const marker = {
-        position: {
-          lat: event.latLng.lat(),
-          lng: event.latLng.lng()
-        },
+        position,
         defaultAnimation: 2,
         key: Date.now(), // Add a key property for: http://fb.me/react-warning-keys
-      }
-      const db = firebase.database();
-      addMarkers(db.ref('/Markers'), marker);
+      };
+      setSelectedPosition(marker);
+      setShowModal(true);
 
       // if (nextMarkers.length === 3) {
       //   this.props.toast(
@@ -42,9 +46,11 @@ export default compose(
       toggleInfoWindow(null);
     },
     handleOnMarkerLeftClick: ({ toggleInfoWindow }) => targetMarker => {
-      toggleInfoWindow(targetMarker.position || null);
+      if (isEmpty(targetMarker)) return;
+      toggleInfoWindow(targetMarker || null);
+    },
+    handleMarkerRightClick: ({ markers }) => targetMarker => {
+      console.log('targetMarker', targetMarker)
     }
-    // handleMarkerRightClick: ({ markers }) => targetMarker => {
-    // }
   })
 )(Map);
