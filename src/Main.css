@@ -52,6 +52,19 @@
   margin: 0px 5px;
 }
 
+/**
+  * windowInfo Style
+  **/
+.marker-info h2 {
+  font-size: 15pt;
+  font-weight: 900;
+}
+
+.marker-info span {
+  font-size: 11pt;
+}
+/* end windowInfo Style */
+
 @media screen
 and (min-width : 1171px) {
   .Main-header {

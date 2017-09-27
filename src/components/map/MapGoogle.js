@@ -30,7 +30,7 @@ export default function MappGoogle (props) {
 
       {infoWindowPosition && <InfoWindow position={infoWindowPosition.position || {}} >
         {
-          <div>
+          <div className="marker-info">
             <h2>{infoWindowPosition.name}</h2>
             <span>{infoWindowPosition.description}</span>
           </div>
