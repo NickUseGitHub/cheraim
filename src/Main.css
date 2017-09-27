@@ -18,6 +18,40 @@
   width: auto;
 }
 
+.map-modal {
+  position: relative;
+  width: 85%;
+  height: 85%;
+  margin: 0 auto;
+  margin-top: 5%;
+  background-color: white;
+  padding: 10px;
+}
+
+.map-modal div {
+  margin: 10px 0px;
+}
+.map-modal div span.title {
+  font-size: 14pt;
+  font-weight: 900;
+}
+
+.map-modal .select-icon-marker button {
+  width: 60px;
+  height: 60px;
+  background-color: white;
+  margin: 0px 5px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+.map-modal .select-icon-marker button.active {
+  background-color: green;
+}
+
+.map-modal .btn {
+  margin: 0px 5px;
+}
+
 @media screen
 and (min-width : 1171px) {
   .Main-header {
