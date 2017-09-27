@@ -19,6 +19,8 @@ import registerServiceWorker from './registerServiceWorker';
 const store = createStore(mapApp);
 const firebase = app.initializeApp(firebaseConf);
 
+console.log('version 1.0');
+
 ReactDOM.render(
   <Provider store={store}>
     <MainContainer firebase={firebase} />
